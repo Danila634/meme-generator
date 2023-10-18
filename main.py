@@ -15,7 +15,14 @@ else:
     quit()
 print(top_text, bottom_text)
 
-image = Image.open("Cat_with_glasses.png")
+memes = ["big_dog_and_small_dag.jpg", "cat_in_restaurant.png", "cat_with_glasses.png", "di_caprio.jpg", "funny_dad.jpg",
+         "sad_dad.jpeg", "giga_chad.jpg"]
+
+for i in range(len(memes)):
+    print(i, memes[i])
+
+image = Image.open("images/" + memes[int(input("Введите номер картинки: "))])
+
 width, height = image.size
 
 draw = ImageDraw.Draw(image)
@@ -23,6 +30,8 @@ draw = ImageDraw.Draw(image)
 font = ImageFont.truetype("arial.ttf", size=90)
 
 text_size = draw.textbbox((0, 0), top_text, font)
+
+
 draw.text(((width - text_size[2]) / 2, 10), top_text, font=font, fill="Black")
 
 text_size = draw.textbbox((0, 0), bottom_text, font)
